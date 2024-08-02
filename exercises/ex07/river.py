@@ -1,7 +1,7 @@
 """File to define River class."""
 
-from ex06.fish import Fish
-from ex06.bear import Bear
+from ex07.fish import Fish
+from ex07.bear import Bear
 
 class River:
     
