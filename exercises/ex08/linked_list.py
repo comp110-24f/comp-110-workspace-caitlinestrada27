@@ -2,16 +2,19 @@ from __future__ import annotations
 
 __author__ = "730661469"
 
+
 class Node: 
     """Class to create Node of linked list."""
     value: int
     next: Node | None
 
     def __init__(self, val: int, next: Node | None):
+        """Initialize new Node object."""
         self.value = val
         self.next = next
 
     def __str__(self) -> str:
+        """Magic method to convert Node to printable string."""
         if self is None:
             return "None"
         else:
