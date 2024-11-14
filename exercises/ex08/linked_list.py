@@ -1,3 +1,5 @@
+"""EX08 - Linked Lists!"""
+
 from __future__ import annotations 
 
 __author__ = "730661469"
@@ -28,7 +30,7 @@ def value_at(head: Node | None, index: int) -> int:
         raise IndexError("Index is out of bounds on the list.")
     if index == 0: 
         return head.value 
-    return value_at(head.next, index - 1)
+    return value_at(head.next, index - 1) # recursive call
 
 
 def max(head: Node | None) -> int:
@@ -37,7 +39,7 @@ def max(head: Node | None) -> int:
         raise ValueError("Cannot call max with None")
     if head.next is None:
         return head.value
-    next_max = max(head.next)
+    next_max = max(head.next) # recursive call 
     if head.value > next_max:
         next_max = head.value
     return next_max    
@@ -47,7 +49,7 @@ def linkify(items: list[int]) -> Node | None:
     """Slice list of integers and link together in linked list."""
     if len(items) == 0:
         return None
-    return Node(items[0], linkify(items[1:]))
+    return Node(items[0], linkify(items[1:])) # recursive call
     
 
 def scale(head: Node | None, factor: int) -> Node | None:
@@ -56,4 +58,4 @@ def scale(head: Node | None, factor: int) -> Node | None:
         return None
     if head.next is None:
         return Node(head.value * factor, None)
-    return Node(head.value * factor, scale(head.next, factor))
+    return Node(head.value * factor, scale(head.next, factor)) # recursive call 
